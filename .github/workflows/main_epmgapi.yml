@@ -54,4 +54,4 @@ jobs:
           app-name: 'EPMGapi'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0D8C7F562688431885935AE749C82484 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_91E6D8A5BE254FC3B064B1467849D10A }}
