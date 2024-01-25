@@ -5813,19 +5813,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\karNmar\\.nuget\\packages\\": {}
+    "C:\\Users\\crodr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\karNmar\\Desktop\\Employee-Manager\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\crodr\\OneDrive\\Desktop\\csharp\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\karNmar\\Desktop\\Employee-Manager\\Backend\\Backend.csproj",
-      "packagesPath": "C:\\Users\\karNmar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\karNmar\\Desktop\\Employee-Manager\\Backend\\obj\\",
+      "projectPath": "C:\\Users\\crodr\\OneDrive\\Desktop\\csharp\\Backend\\Backend.csproj",
+      "packagesPath": "C:\\Users\\crodr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\crodr\\OneDrive\\Desktop\\csharp\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\karNmar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\crodr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
