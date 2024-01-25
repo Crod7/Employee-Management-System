@@ -18,8 +18,14 @@ namespace Backend.Models
     // Foreign Key
     [ForeignKey("Role")]
     public int RoleId { get; set; }
+    [ForeignKey("PayGrade")]
+    public int PayGradeId { get; set; }
+    [ForeignKey("PersonalInfo")]
+    public int PersonalInfoId { get; set; }
 
     // Navigation Property
     public Role Role { get; set; } = null!;
+    public PayGrade PayGrade { get; set; } = null!;
+    public PersonalInfo PersonalInfo { get; set; } = null!;
   }
 }

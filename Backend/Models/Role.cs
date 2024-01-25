@@ -1,4 +1,3 @@
-// Role.cs
 using System.ComponentModel.DataAnnotations;
 
 namespace Backend.Models
