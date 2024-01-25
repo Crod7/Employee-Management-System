@@ -25,7 +25,7 @@ public class EmployeesController : ControllerBase
       await _dbContext.SaveChangesAsync();
 
       // Return the created employee with a 201 Created status
-      return CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, employee);
+      return CreatedAtAction(nameof(GetEmployee), new { id = employee.EmployeeId }, employee);
     }
 
     // Return a 400 Bad Request with validation errors if the model is not valid

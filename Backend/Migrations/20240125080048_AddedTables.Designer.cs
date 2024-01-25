@@ -3,6 +3,7 @@ using System;
 using Backend.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240125080048_AddedTables")]
+    partial class AddedTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,6 +51,9 @@ namespace Backend.Migrations
                     b.Property<int>("PayGradeId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("PerformanceId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("PersonalInfoId")
                         .HasColumnType("integer");
 
@@ -69,6 +74,9 @@ namespace Backend.Migrations
                     b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("TimeOffRequestId")
+                        .HasColumnType("integer");
 
                     b.HasKey("EmployeeId");
 
@@ -97,30 +105,6 @@ namespace Backend.Migrations
                     b.HasKey("PayGradeId");
 
                     b.ToTable("PayGrade");
-                });
-
-            modelBuilder.Entity("Backend.Models.Performance", b =>
-                {
-                    b.Property<int>("PerformanceId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PerformanceId"));
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("integer");
-
-                    b.Property<float>("Sales")
-                        .HasColumnType("real");
-
-                    b.HasKey("PerformanceId");
-
-                    b.HasIndex("EmployeeId");
-
-                    b.ToTable("Performance");
                 });
 
             modelBuilder.Entity("Backend.Models.PersonalInfo", b =>
@@ -225,31 +209,6 @@ namespace Backend.Migrations
                     b.ToTable("Schedule");
                 });
 
-            modelBuilder.Entity("Backend.Models.TimeOffRequest", b =>
-                {
-                    b.Property<int>("TimeOffRequestId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TimeOffRequestId"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("TimeOffDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("TimeOffRequestId");
-
-                    b.HasIndex("EmployeeId");
-
-                    b.ToTable("TimeOffRequest");
-                });
-
             modelBuilder.Entity("Backend.Models.Employee", b =>
                 {
                     b.HasOne("Backend.Models.PayGrade", "PayGrade")
@@ -283,35 +242,6 @@ namespace Backend.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("Schedule");
-                });
-
-            modelBuilder.Entity("Backend.Models.Performance", b =>
-                {
-                    b.HasOne("Backend.Models.Employee", "Employee")
-                        .WithMany("Performance")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("Backend.Models.TimeOffRequest", b =>
-                {
-                    b.HasOne("Backend.Models.Employee", "Employee")
-                        .WithMany("TimeOffRequest")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("Backend.Models.Employee", b =>
-                {
-                    b.Navigation("Performance");
-
-                    b.Navigation("TimeOffRequest");
                 });
 #pragma warning restore 612, 618
         }
