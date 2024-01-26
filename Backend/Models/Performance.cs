@@ -11,10 +11,7 @@ namespace Backend.Models
     public DateTime Date { get; set; }
 
     // Foreign key property
-    public int EmployeeId { get; set; }
+    public int? EmployeeId { get; set; }
 
-    // Navigation property for the related Employee
-    [ForeignKey("EmployeeId")]
-    public Employee Employee { get; set; } = null!;
   }
 }

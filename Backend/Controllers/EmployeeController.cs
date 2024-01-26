@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Backend.Context;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class EmployeesController : ControllerBase
 {
   private readonly ApplicationDbContext _dbContext;
@@ -16,9 +16,9 @@ public class EmployeesController : ControllerBase
   }
   /*
  * HTTP: POST
- * URL: server/employees
- * BODY:
- * {
+ * URL: /api/employees
+ * BODY: 
+  {
     "Name": "John Doe",
     "Email": "john.doe@example.com",
     "Phone": "123-456-7890",
@@ -38,7 +38,7 @@ public class EmployeesController : ControllerBase
     if (ModelState.IsValid)
     {
       // Add the employee to the database
-      _dbContext.Employees.Add(employee);
+      _dbContext.Employee.Add(employee);
       await _dbContext.SaveChangesAsync();
 
       // Return the created employee with a 201 Created status
@@ -52,13 +52,13 @@ public class EmployeesController : ControllerBase
 
   /*
    * HTTP: GET
-   * URL: server/employees/{id}
+   * URL: /api/employees/{id}
    */
   [HttpGet("{id}")]
   public IActionResult GetEmployee(int id)
   {
     // Retrieve the employee by id
-    var employee = _dbContext.Employees.Find(id);
+    var employee = _dbContext.Employee.Find(id);
 
     if (employee == null)
     {

@@ -6,6 +6,7 @@ namespace Backend.Models
   public class Employee
   {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int EmployeeId { get; set; }
     public string Name { get; set; } = null!;
     public string Email { get; set; } = null!;
@@ -23,23 +24,25 @@ namespace Backend.Models
     public int PayGradeId { get; set; }
 
     [ForeignKey("PersonalInfo")]
-    public int PersonalInfoId { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int? PersonalInfoId { get; set; }
 
     [ForeignKey("Schedule")]
-    public int ScheduleId { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int? ScheduleId { get; set; }
 
 
 
     // Navigation Property
-    public Role Role { get; set; } = null!;
-    public PayGrade PayGrade { get; set; } = null!;
-    public PersonalInfo PersonalInfo { get; set; } = null!;
-    public Schedule Schedule { get; set; } = null!;
+    public Role? Role { get; set; } = null!;
+    public PayGrade? PayGrade { get; set; } = null!;
+    public PersonalInfo? PersonalInfo { get; set; } = null!;
+    public Schedule? Schedule { get; set; } = null!;
 
 
 
     // Navigation property for one-to-many relationship
-    public ICollection<TimeOffRequest> TimeOffRequest { get; set; } = null!;
-    public ICollection<Performance> Performance { get; set; } = null!;
+    public ICollection<TimeOffRequest>? TimeOffRequest { get; set; }
+    public ICollection<Performance>? Performance { get; set; }
   }
 }
