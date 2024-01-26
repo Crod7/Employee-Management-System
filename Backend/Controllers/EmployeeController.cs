@@ -8,13 +8,30 @@ using Backend.Context;
 [Route("[controller]")]
 public class EmployeesController : ControllerBase
 {
-  private readonly ApplicationDbContext _dbContext; // Replace YourDbContext with the actual name of your DbContext
+  private readonly ApplicationDbContext _dbContext;
 
   public EmployeesController(ApplicationDbContext dbContext)
   {
     _dbContext = dbContext;
   }
-
+  /*
+ * HTTP: POST
+ * URL: server/employees
+ * BODY:
+ * {
+    "Name": "John Doe",
+    "Email": "john.doe@example.com",
+    "Phone": "123-456-7890",
+    "Address": "123 Main St",
+    "City": "Anytown",
+    "State": "CA",
+    "PostalCode": "12345",
+    "RoleId": 1, // Lowest Role 'Employee'
+    "PayGradeId": 1, // Lowest Pay '$52,000'
+    "PersonalInfoId": 3,
+    "ScheduleId": 4
+  }
+ */
   [HttpPost]
   public async Task<IActionResult> CreateEmployee([FromBody] Employee employee)
   {
@@ -32,6 +49,11 @@ public class EmployeesController : ControllerBase
     return BadRequest(ModelState);
   }
 
+
+  /*
+   * HTTP: GET
+   * URL: server/employees/{id}
+   */
   [HttpGet("{id}")]
   public IActionResult GetEmployee(int id)
   {

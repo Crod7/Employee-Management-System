@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\crodr\\OneDrive\\Desktop\\csharp\\Backend\\Backend.csproj": {}
+    "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\crodr\\OneDrive\\Desktop\\csharp\\Backend\\Backend.csproj": {
+    "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\crodr\\OneDrive\\Desktop\\csharp\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\crodr\\OneDrive\\Desktop\\csharp\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\crodr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\crodr\\OneDrive\\Desktop\\csharp\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\karNmar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\crodr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\karNmar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
