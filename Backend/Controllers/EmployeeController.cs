@@ -18,19 +18,40 @@ public class EmployeesController : ControllerBase
  * HTTP: POST
  * URL: /api/employees
  * BODY: 
-  {
-    "Name": "John Doe",
-    "Email": "john.doe@example.com",
-    "Phone": "123-456-7890",
-    "Address": "123 Main St",
-    "City": "Anytown",
-    "State": "CA",
-    "PostalCode": "12345",
-    "RoleId": 1, // Lowest Role 'Employee'
-    "PayGradeId": 1, // Lowest Pay '$52,000'
-    "PersonalInfoId": 3,
-    "ScheduleId": 4
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "123-456-7890",
+  "address": "123 Main St",
+  "city": "Anytown",
+  "state": "CA",
+  "postalCode": "12345",
+  "roleId": 1,
+  "payGradeId": 1,
+  "personalInfo": {
+    "ssn": "123456789",
+    "routingNumber": 123456789,
+    "accountNumber": 987654321,
+    "birthdate": "1990-01-01T00:00:00Z",
+    "hireDate": "2024-01-26T06:58:38.927Z"
+  },
+  "schedule": {
+    "mondayStart": "2024-01-26T08:00:00Z",
+    "mondayEnd": "2024-01-26T17:00:00Z",
+    "tuesdayStart": "2024-01-26T08:00:00Z",
+    "tuesdayEnd": "2024-01-26T17:00:00Z",
+    "wednesdayStart": "2024-01-26T08:00:00Z",
+    "wednesdayEnd": "2024-01-26T17:00:00Z",
+    "thursdayStart": "2024-01-26T08:00:00Z",
+    "thursdayEnd": "2024-01-26T17:00:00Z",
+    "fridayStart": "2024-01-26T08:00:00Z",
+    "fridayEnd": "2024-01-26T17:00:00Z",
+    "saturdayStart": "2024-01-26T08:00:00Z",
+    "saturdayEnd": "2024-01-26T12:00:00Z",
+    "sundayStart": "2024-01-26T08:00:00Z",
+    "sundayEnd": "2024-01-26T12:00:00Z"
   }
+}
  */
   [HttpPost]
   public async Task<IActionResult> CreateEmployee([FromBody] Employee employee)
