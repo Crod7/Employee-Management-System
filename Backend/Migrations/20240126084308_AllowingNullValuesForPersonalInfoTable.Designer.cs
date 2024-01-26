@@ -3,6 +3,7 @@ using System;
 using Backend.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240126084308_AllowingNullValuesForPersonalInfoTable")]
+    partial class AllowingNullValuesForPersonalInfoTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,46 +181,46 @@ namespace Backend.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ScheduleId"));
 
-                    b.Property<DateTime?>("FridayEnd")
+                    b.Property<DateTime>("FridayEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("FridayStart")
+                    b.Property<DateTime>("FridayStart")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("MondayEnd")
+                    b.Property<DateTime>("MondayEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("MondayStart")
+                    b.Property<DateTime>("MondayStart")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("SaturdayEnd")
+                    b.Property<DateTime>("SaturdayEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("SaturdayStart")
+                    b.Property<DateTime>("SaturdayStart")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("SundayEnd")
+                    b.Property<DateTime>("SundayEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("SundayStart")
+                    b.Property<DateTime>("SundayStart")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("ThursdayEnd")
+                    b.Property<DateTime>("ThursdayEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("ThursdayStart")
+                    b.Property<DateTime>("ThursdayStart")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("TuesdayEnd")
+                    b.Property<DateTime>("TuesdayEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("TuesdayStart")
+                    b.Property<DateTime>("TuesdayStart")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("WednesdayEnd")
+                    b.Property<DateTime>("WednesdayEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("WednesdayStart")
+                    b.Property<DateTime>("WednesdayStart")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("ScheduleId");
