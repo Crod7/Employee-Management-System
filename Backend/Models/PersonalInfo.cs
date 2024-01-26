@@ -9,17 +9,14 @@ namespace Backend.Models
     [Key]
     public int PersonalInfoId { get; set; }
 
-    [Required]
     [StringLength(9)] // Assuming SSN is 9 digits
-    public string SSN { get; set; } = null!;
+    public string? SSN { get; set; }
 
     // Assuming routing and account numbers can be stored as integers
-    public long RoutingNumber { get; set; }
-    public long AccountNumber { get; set; }
+    public long? RoutingNumber { get; set; }
+    public long? AccountNumber { get; set; }
 
-    public DateTime Birthdate { get; set; }
-    public DateTime HireDate { get; set; }
-
-
+    public DateTime? Birthdate { get; set; }
+    public DateTime? HireDate { get; set; }
   }
 }

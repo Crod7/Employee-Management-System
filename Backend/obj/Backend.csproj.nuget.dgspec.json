@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\Backend.csproj": {}
+    "C:\\Users\\karNmar\\Desktop\\Employee-Manager\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\Backend.csproj": {
+    "C:\\Users\\karNmar\\Desktop\\Employee-Manager\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\karNmar\\Desktop\\Employee-Manager\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\karNmar\\Desktop\\Employee-Manager\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\karNmar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karNmar\\Desktop\\Employee-Management-System\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\karNmar\\Desktop\\Employee-Manager\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\karNmar\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -15,9 +15,10 @@ public class EmployeesController : ControllerBase
     _dbContext = dbContext;
   }
   /*
- * HTTP: POST
- * URL: /api/employees
- * BODY: 
+   * Initial Employee Data
+   * HTTP: POST
+   * URL: /api/employees
+   * BODY: 
 {
   "name": "John Doe",
   "email": "john.doe@example.com",
@@ -29,11 +30,11 @@ public class EmployeesController : ControllerBase
   "roleId": 1,
   "payGradeId": 1,
   "personalInfo": {
-    "ssn": "123456789",
-    "routingNumber": 123456789,
-    "accountNumber": 987654321,
-    "birthdate": "1990-01-01T00:00:00Z",
-    "hireDate": "2024-01-26T06:58:38.927Z"
+    "ssn": null,
+    "routingNumber": null,
+    "accountNumber": null,
+    "birthdate": null,
+    "hireDate": null
   },
   "schedule": {
     "mondayStart": "2024-01-26T08:00:00Z",
