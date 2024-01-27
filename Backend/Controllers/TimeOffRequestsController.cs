@@ -19,14 +19,20 @@ namespace Backend.Controllers
       _context = context;
     }
 
-    // GET: api/TimeOffRequests
+    /*
+     * HTTP: GET
+     * URL: /api/TimeOffRequests
+     */
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TimeOffRequest>>> GetTimeOffRequests()
     {
       return await _context.TimeOffRequest.ToListAsync();
     }
 
-    // GET: api/TimeOffRequests/5
+    /*
+     * HTTP: GET
+     * URL: /api/TimeOffRequests/{id}
+     */
     [HttpGet("{id}")]
     public async Task<ActionResult<TimeOffRequest>> GetTimeOffRequest(int id)
     {
@@ -40,7 +46,7 @@ namespace Backend.Controllers
       return timeOffRequest;
     }
     /*
-     * Initial Employee Data
+     * Initial TimeOffRequest Data
      * HTTP: POST
      * URL: /api/TimeOffRequests
      * BODY: 
@@ -73,37 +79,58 @@ namespace Backend.Controllers
       }
     }
 
-    // PUT: api/TimeOffRequests/5
+    /*
+     * HTTP: PUT
+     * URL: /api/TimeOffRequests/{id}
+     * BODY:
+     {   
+      "TimeOffRequestId": {id},
+      "Description": "Cow",
+      "TimeOffDate": "2024-01-26T08:00:00Z",
+      "EmployeeId": {emp's original id}
+      }
+     */
     [HttpPut("{id}")]
     public async Task<IActionResult> PutTimeOffRequest(int id, TimeOffRequest timeOffRequest)
     {
       if (id != timeOffRequest.TimeOffRequestId)
       {
-        return BadRequest("Invalid request");
+        return BadRequest("Invalid request: ID mismatch");
       }
 
-      _context.Entry(timeOffRequest).State = EntityState.Modified;
+      // Validate the model
+      if (!ModelState.IsValid)
+      {
+        return BadRequest(ModelState);
+      }
 
       try
       {
+        // Check if the TimeOffRequest with the given ID exists
+        var existingRequest = await _context.TimeOffRequest.FindAsync(id);
+        if (existingRequest == null)
+        {
+          return NotFound("TimeOffRequest not found");
+        }
+
+        // Update the existing request with the values from timeOffRequest
+        _context.Entry(existingRequest).CurrentValues.SetValues(timeOffRequest);
+
         await _context.SaveChangesAsync();
       }
-      catch (DbUpdateConcurrencyException)
+      catch (Exception ex)
       {
-        if (!TimeOffRequestExists(id))
-        {
-          return NotFound();
-        }
-        else
-        {
-          throw;
-        }
+        return StatusCode(500, $"Internal Server Error: {ex.Message}");
       }
 
       return NoContent();
     }
 
-    // DELETE: api/TimeOffRequests/5
+
+    /*
+     * HTTP: DELETE
+     * URL: /api/TimeOffRequests/{id}
+     */
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTimeOffRequest(int id)
     {
