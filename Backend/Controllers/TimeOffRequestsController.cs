@@ -10,11 +10,11 @@ namespace Backend.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
-  public class TimeOffRequestController : ControllerBase
+  public class TimeOffRequestsController : ControllerBase
   {
     private readonly ApplicationDbContext _context;
 
-    public TimeOffRequestController(ApplicationDbContext context)
+    public TimeOffRequestsController(ApplicationDbContext context)
     {
       _context = context;
     }
@@ -39,8 +39,17 @@ namespace Backend.Controllers
 
       return timeOffRequest;
     }
-
-    // POST: api/TimeOffRequests
+    /*
+     * Initial Employee Data
+     * HTTP: POST
+     * URL: /api/TimeOffRequests
+     * BODY: 
+      {
+        "Description": "Why are you taking off? String",
+        "TimeOffDate": "2024-01-26T08:00:00Z",
+        "EmployeeId": 3 // Must be the emp's ID requesting the time off.
+      }
+     */
     [HttpPost]
     public async Task<ActionResult<TimeOffRequest>> PostTimeOffRequest(TimeOffRequest timeOffRequest)
     {
