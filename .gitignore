@@ -40,3 +40,24 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+.vs/
+
+# .NET
+*.dll
+*.pdb
+*.obj/
+*.bin/
+*.user
+*.suo
+*.cache
+*.log
+*.vsconfig
+
+# Ignore bin and obj directories
+Backend/bin/
+Backend/obj/

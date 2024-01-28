@@ -9,7 +9,6 @@ namespace Backend.Models
   {
     [Key]
     public int TimeOffRequestId { get; set; }
-
     public string Description { get; set; } = null!;
     public DateTime TimeOffDate { get; set; }
 
