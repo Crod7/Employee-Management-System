@@ -91,4 +91,25 @@ public class EmployeesController : ControllerBase
     // Return the employee with a 200 OK status
     return Ok(employee);
   }
+    /*
+    * HTTP: GET
+    * URL: /api/employees
+    */
+    [HttpGet]
+    public IActionResult GetAllEmployee()
+    {
+        // Retrieve all employees
+        var employees = _dbContext.Employee.ToList();
+
+        if (employees == null || employees.Count == 0)
+        {
+            // Return a 404 Not Found if no employees are found
+            return NotFound();
+        }
+
+        // Return the list of employees with a 200 OK status
+        return Ok(employees);
+    }
+
+
 }
