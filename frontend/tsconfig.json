@@ -22,7 +22,13 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "baseUrl": "./src", // Set the base URL for your project
+    "paths": {
+      "@app/*": [
+        "app/*"
+      ] // Define the path alias for your app
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

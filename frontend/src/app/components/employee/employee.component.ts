@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Employee } from '@app/models/Employee';
 
 @Component({
   selector: 'app-employee',
@@ -10,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmployeeComponent implements OnInit {
   data: any;
+
+  employees: Employee[] = [];
 
   constructor(private http: HttpClient) { }
 
