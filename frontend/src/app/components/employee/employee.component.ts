@@ -24,6 +24,24 @@ export class EmployeeComponent implements OnInit {
 
     this.http.get(url).subscribe((response) => {
       this.data = response;
+
+      console.log(this.data)
+      this.employees = this.data.map((employeeData: any) => {
+        return {
+          employeeId: employeeData.employeeId,
+          name: employeeData.name,
+          email: employeeData.email,
+          phone: employeeData.phone,
+          address: employeeData.address,
+          city: employeeData.city,
+          state: employeeData.state,
+          postalCode: employeeData.postalCode,
+          roleId: employeeData.roleId,
+          payGradeId: employeeData.payGradeId,
+          personalInfoId: employeeData.personalInfoId,
+          scheduleId: employeeData.scheduleId
+        } as Employee;
+      })
       console.log(this.data); // Log the fetched data
     });
   }

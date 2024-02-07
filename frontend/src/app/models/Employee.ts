@@ -1,4 +1,5 @@
 export class Employee {
+    employeeId: number;
     name: string;
     email: string;
     phone: string;
@@ -8,6 +9,7 @@ export class Employee {
     postalCode: string;
     roleId: number;
     payGradeId: number;
+    personalInfoId: number;
     personalInfo: {
         ssn: string;
         routingNumber?: string | null; // Make these properties optional if they can be null
@@ -15,6 +17,7 @@ export class Employee {
         birthdate?: Date | null;
         hireDate?: Date | null;
     };
+    scheduleId: number;
     schedule: {
         mondayStart?: string | null;
         mondayEnd?: string | null;
@@ -33,6 +36,7 @@ export class Employee {
     };
 
     constructor() {
+        this.employeeId = 0;
         this.name = '';
         this.email = '';
         this.phone = '';
@@ -42,6 +46,7 @@ export class Employee {
         this.postalCode = '';
         this.roleId = 0; // Adjust with the default value based on your business logic
         this.payGradeId = 0; // Adjust with the default value based on your business logic
+        this.personalInfoId = 0;
         this.personalInfo = {
             ssn: '',
             routingNumber: null,
@@ -49,6 +54,7 @@ export class Employee {
             birthdate: null,
             hireDate: null,
         };
+        this.scheduleId = 0;
         this.schedule = {};
     }
 }
