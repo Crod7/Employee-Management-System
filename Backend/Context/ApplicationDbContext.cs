@@ -13,6 +13,8 @@ namespace Backend.Context
     public DbSet<TimeOffRequest> TimeOffRequest { get; set; } = null!;
     public DbSet<Performance> Performance { get; set; } = null!;
 
+    public DbSet<Role> Role { get; set; } = null!;
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
