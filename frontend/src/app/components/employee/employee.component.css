@@ -1,0 +1,22 @@
+.employee-container {
+    background-color: rgb(96, 204, 232);
+    height: 10vh;
+    padding: 1vh;
+    margin: 1vh;
+    display: flex;
+}
+
+.employee-profile-image {
+    border-radius: 100%;
+    height: 10vh;
+}
+
+.employee-right-side {
+    width: 100%;
+}
+
+.employee-top-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,6 +1,23 @@
 <h1>employee works!</h1>
-<ul>
-    <li *ngFor="let employee of employees">
-        {{employee.name}}
-    </li>
-</ul>
+<div *ngFor="let employee of employees">
+    <div class="employee-container">
+        <img class="employee-profile-image" src="/assets/userDefault.png">
+        <div class="employee-right-side">
+            <div class="employee-top-row">
+                <div>
+                    Name: {{employee.name}}
+
+                </div>
+                <div>
+                    Title: {{employee.roleId}}
+
+                </div>
+            </div>
+            <div class="employee-bottom-row">
+                <div>
+                    Cow
+                </div>
+            </div>
+        </div>
+
+    </div>
