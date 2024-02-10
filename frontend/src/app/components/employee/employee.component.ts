@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from '@app/models/Employee';
+import { Role } from '@app/models/Role';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -18,15 +19,16 @@ export class EmployeeComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.fetchData();
+    this.getAllEmployees();
   }
-  fetchData() {
-    const url = 'https://epmgapi.azurewebsites.net/api/employees';
+  getAllEmployees() {
+    const getAllEmployeesUrl = 'https://epmgapi.azurewebsites.net/api/employees';
 
-    this.http.get(url).subscribe((response) => {
-      this.data = response;
+    this.http.get(getAllEmployeesUrl).subscribe((getAllEmployeeResponse) => {
+      this.data = getAllEmployeeResponse;
+      console.log(this.data); // Logs the fetched data(array)
 
-      console.log(this.data)
+      // We map each employee to employees arrray
       this.employees = this.data.map((employeeData: any) => {
         return {
           employeeId: employeeData.employeeId,
@@ -43,7 +45,6 @@ export class EmployeeComponent implements OnInit {
           scheduleId: employeeData.scheduleId
         } as Employee;
       })
-      console.log(this.data); // Log the fetched data
     });
   }
 }
