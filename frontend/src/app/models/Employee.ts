@@ -7,6 +7,7 @@ export class Employee {
     city: string;
     state: string;
     postalCode: string;
+    role: string;
     roleId: number;
     payGradeId: number;
     personalInfoId: number;
@@ -44,6 +45,7 @@ export class Employee {
         this.city = '';
         this.state = '';
         this.postalCode = '';
+        this.role = '';
         this.roleId = 0; // Adjust with the default value based on your business logic
         this.payGradeId = 0; // Adjust with the default value based on your business logic
         this.personalInfoId = 0;

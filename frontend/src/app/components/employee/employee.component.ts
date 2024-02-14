@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 export class EmployeeComponent implements OnInit {
     empData: any;
     rolesData: any;
+    employeeRole: any;
 
     roles: Role[] = [];
     employees: Employee[] = [];
@@ -34,7 +35,7 @@ export class EmployeeComponent implements OnInit {
             this.roles = this.rolesData.map((roleData: any) => {
                 return {
                     roleId: roleData.roleId,
-                    roleName: roleData.name
+                    roleName: roleData.roleName
                 }
             })
         })
@@ -48,6 +49,8 @@ export class EmployeeComponent implements OnInit {
 
             // We map each employee to employees arrray
             this.employees = this.empData.map((employeeData: any) => {
+                this.employeeRole = this.roles.find(roles => roles.roleId === employeeData.roleId);
+                console.log(this.employeeRole.roleName)
                 return {
                     employeeId: employeeData.employeeId,
                     name: employeeData.name,
@@ -57,6 +60,7 @@ export class EmployeeComponent implements OnInit {
                     city: employeeData.city,
                     state: employeeData.state,
                     postalCode: employeeData.postalCode,
+                    role: this.employeeRole.roleName,
                     roleId: employeeData.roleId,
                     payGradeId: employeeData.payGradeId,
                     personalInfoId: employeeData.personalInfoId,
