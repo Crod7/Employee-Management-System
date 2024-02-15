@@ -23,14 +23,12 @@ export class EmployeeComponent implements OnInit {
 
     ngOnInit() {
         this.getAllRoles()
-        this.getAllEmployees();
     }
     getAllRoles() {
         const getAllRolesUrl = 'https://epmgapi.azurewebsites.net/api/role';
 
         this.http.get(getAllRolesUrl).subscribe((getAllRolesResponse) => {
             this.rolesData = getAllRolesResponse;
-            console.log(this.rolesData)
 
             this.roles = this.rolesData.map((roleData: any) => {
                 return {
@@ -38,6 +36,8 @@ export class EmployeeComponent implements OnInit {
                     roleName: roleData.roleName
                 }
             })
+            console.log(this.roles)
+            this.getAllEmployees();
         })
     }
     getAllEmployees() {
@@ -45,11 +45,10 @@ export class EmployeeComponent implements OnInit {
 
         this.http.get(getAllEmployeesUrl).subscribe((getAllEmployeeResponse) => {
             this.empData = getAllEmployeeResponse;
-            console.log(this.empData); // Logs the fetched data(array)
-
+            console.log(this.roles)
             // We map each employee to employees arrray
             this.employees = this.empData.map((employeeData: any) => {
-                this.employeeRole = this.roles.find(roles => roles.roleId === employeeData.roleId);
+                this.employeeRole = this.roles.find(role => role.roleId === employeeData.roleId);
                 console.log(this.employeeRole.roleName)
                 return {
                     employeeId: employeeData.employeeId,
