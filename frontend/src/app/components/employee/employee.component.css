@@ -1,5 +1,5 @@
 .employee-container {
-    background-color: rgb(204, 208, 209);
+    background-color: var(--primary-color);
     height: 74px;
     padding: 1vh;
     margin: 1vh;
@@ -28,7 +28,7 @@
     padding-top: 20px;
     width: 80%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
 }
 
 .employee-bottom-row button {
