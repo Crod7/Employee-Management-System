@@ -1,0 +1,12 @@
+.main-container {
+    width: 100%;
+}
+
+.lower-section {
+    display: flex;
+    width: 100%;
+}
+
+.lower-section app-employee {
+    width: 100%;
+}
