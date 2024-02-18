@@ -1,9 +1,11 @@
 <div class="main-container">
   <app-menu />
   <div class="lower-section">
-    <app-sidebar />
+    <app-sidebar (addClicked)="openModal()" />
     <app-employee />
   </div>
+  <app-modal *ngIf="isModalVisable" (closeModal)="closeModal()" />
+
 </div>
 
 <router-outlet />

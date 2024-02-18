@@ -20,7 +20,14 @@
 .employee-top-row {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+}
+
+.employee-top-row div {
+    margin-left: 100px;
+}
+
+.employee-top-row button {
+    margin-left: auto;
 }
 
 .employee-bottom-row {

@@ -3,6 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'app-root',
@@ -11,11 +14,21 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
         RouterOutlet,
         EmployeeComponent,
         MenuComponent,
-        SidebarComponent
+        SidebarComponent,
+        ModalComponent,
+        CommonModule
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
 })
 export class AppComponent {
     title = 'frontend';
+    isModalVisable = true;
+
+    openModal() {
+        this.isModalVisable = true;
+    }
+    closeModal() {
+        this.isModalVisable = false;
+    }
 }
