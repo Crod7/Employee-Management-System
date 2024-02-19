@@ -14,10 +14,14 @@ export class ModalComponent {
 
     constructor(private fb: FormBuilder) {
         this.modalForm = this.fb.group({
-            input1: ['', Validators.required],
-            input2: ['', Validators.pattern(/^[A-Za-z0-9]+$/)]
+            requiredField: ['', Validators.required],
+            nonRequiredField: [''],
+            phonePart1: ['', [Validators.required, Validators.maxLength(3), Validators.pattern('^[0-9]+$')]],
+            phonePart2: ['', [Validators.required, Validators.maxLength(3), Validators.pattern('^[0-9]+$')]],
+            phonePart3: ['', [Validators.required, Validators.maxLength(4), Validators.pattern('^[0-9]+$')]]
         });
     }
+
     @Output() closeModal = new EventEmitter<void>();
 
     onClose() {

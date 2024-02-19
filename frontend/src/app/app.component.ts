@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
     title = 'frontend';
-    isModalVisable = true;
+    isModalVisable = false;
 
     openModal() {
         this.isModalVisable = true;
