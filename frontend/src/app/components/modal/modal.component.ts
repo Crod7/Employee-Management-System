@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -22,6 +22,21 @@ export class ModalComponent {
         });
     }
 
+
+    ngOnInit() {
+        this.modalForm = this.fb.group({
+            name: ['', Validators.required],
+            email: ['', Validators.required],
+            phonePart1: [''],
+            phonePart2: [''],
+            phonePart3: [''],
+            address1: [''],
+            address2: [''],
+            city: [''],
+            state: [''],
+            zipcode: ['']
+        });
+    }
     @Output() closeModal = new EventEmitter<void>();
 
     onClose() {
