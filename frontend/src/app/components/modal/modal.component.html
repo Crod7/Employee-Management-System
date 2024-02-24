@@ -1,4 +1,4 @@
-<div class="modal-container">
+<form [formGroup]="employeeForm" class="modal-container" (submit)="employeeAddSubmit()">
     <div class="modal">
         <div class="modal-button">
             <button (click)="onClose()">X</button>
@@ -7,41 +7,41 @@
 
         <div class="modal-form">
             <div>
-                <label for="nameField">Name: </label>
-                <input class="name-input" type="text" id="nameField" formControlName="requiredField">
+                <label for="name">Name: </label>
+                <input class="name-input" type="text" id="name" formControlName="name">
             </div>
             <div>
-                <label for="emailField">Email: </label>
-                <input class="email-input" type="text" id="emailField" formControlName="requiredField">
+                <label for="email">Email: </label>
+                <input class="email-input" type="text" id="email" formControlName="email">
             </div>
 
             <div class="phone-input">
                 <label for="phonePart1">Phone Number: </label>
-                <input type="text" id="phonePart1" maxlength="3">
+                <input type="text" id="phonePart1" maxlength="3" formControlName="phonePart1">
                 <span>-</span>
-                <input type="text" id="phonePart2" maxlength="3">
+                <input type="text" id="phonePart2" maxlength="3" formControlName="phonePart2">
                 <span>-</span>
-                <input type="text" id="phonePart3" maxlength="4">
+                <input type="text" id="phonePart3" maxlength="4" formControlName="phonePart3">
             </div>
             <div class="address-input">
                 <label for="address1">Address 1: </label>
-                <input type="text" id="address1" formControlName="nonRequiredField">
+                <input type="text" id="address1" formControlName="address1">
             </div>
             <div class="address-input">
                 <label for="address2">Address 2: </label>
-                <input type="text" id="address2" formControlName="nonRequiredField">
+                <input type="text" id="address2" formControlName="address2">
             </div>
             <div>
                 <label for="city">City: </label>
-                <input class="city-input" type="text" id="city" formControlName="nonRequiredField">
+                <input class="city-input" type="text" id="city" formControlName="city">
                 <label for="state">State: </label>
-                <input class="state-input" type="text" id="state" formControlName="nonRequiredField">
+                <input class="state-input" type="text" id="state" formControlName="state">
                 <label for="zipcode">Zipcode: </label>
-                <input class="zipcode-input" type="text" id="zipcode" formControlName="nonRequiredField">
+                <input class="zipcode-input" type="text" id="zipcode" formControlName="zipcode">
             </div>
         </div>
         <div class="modal-button">
-            <button (click)="onClose()">Add</button>
+            <button type="submit">Add</button>
         </div>
     </div>
-</div>
+</form>
