@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { addEmployee } from '@app/lib/httpFunctions/Employee';
 
 @Component({
     selector: 'app-modal',
@@ -10,7 +12,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } 
     styleUrl: './modal.component.css'
 })
 export class ModalComponent {
-
+    constructor(private http: HttpClient) { }
     employeeForm = new FormGroup({
         name: new FormControl(''),
         email: new FormControl(''),
@@ -37,9 +39,15 @@ export class ModalComponent {
         zipcode: string
     ) {
         console.log(name)
+        console.log(this.employeeForm.value)
+        addEmployee(this.http, this.employeeForm.value).subscribe(response => {
+            console.log('Employee added successfully:', response);
+        }, error => {
+            console.error('Error adding employee:', error);
+        });
     }
 
-    employeeAddSubmit() {
+    employeeAddSubmit(): void {
         this.submitApplication(
             this.employeeForm.value.name ?? '',
             this.employeeForm.value.email ?? '',
