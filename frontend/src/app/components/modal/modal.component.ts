@@ -38,8 +38,6 @@ export class ModalComponent {
         state: string,
         zipcode: string
     ) {
-        console.log(name)
-        console.log(this.employeeForm.value)
         addEmployee(this.http, this.employeeForm.value).subscribe(response => {
             console.log('Employee added successfully:', response);
         }, error => {

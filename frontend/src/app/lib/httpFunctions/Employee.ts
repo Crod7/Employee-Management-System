@@ -8,8 +8,8 @@ export function addEmployee(http: HttpClient, formData: any): Observable<any[]> 
     const jsonData = {
         name: formData.name,
         email: formData.email,
-        phone: formData.phonePart1,
-        address: formData.address1,
+        phone: `${formData.phonePart1}-${formData.phonePart2}-${formData.phonePart3}`,
+        address: `${formData.address1} ${formData.address2}`,
         city: formData.city,
         state: formData.state,
         postalCode: formData.zipcode,
