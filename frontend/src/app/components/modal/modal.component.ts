@@ -26,18 +26,8 @@ export class ModalComponent {
         zipcode: new FormControl('')
     });
 
-    submitApplication(
-        name: string,
-        email: string,
-        phonePart1: string,
-        phonePart2: string,
-        phonePart3: string,
-        address1: string,
-        address2: string,
-        city: string,
-        state: string,
-        zipcode: string
-    ) {
+    // Used to add a new employee
+    employeeAddSubmit(): void {
         addEmployee(this.http, this.employeeForm.value).subscribe(response => {
             console.log('Employee added successfully:', response);
         }, error => {
@@ -45,23 +35,8 @@ export class ModalComponent {
         });
     }
 
-    employeeAddSubmit(): void {
-        this.submitApplication(
-            this.employeeForm.value.name ?? '',
-            this.employeeForm.value.email ?? '',
-            this.employeeForm.value.phonePart1 ?? '',
-            this.employeeForm.value.phonePart2 ?? '',
-            this.employeeForm.value.phonePart3 ?? '',
-            this.employeeForm.value.address1 ?? '',
-            this.employeeForm.value.address2 ?? '',
-            this.employeeForm.value.city ?? '',
-            this.employeeForm.value.state ?? '',
-            this.employeeForm.value.zipcode ?? ''
-        )
-    }
-
+    // The 'X' button on the modal used to close the modal
     @Output() closeModal = new EventEmitter<void>();
-
     onClose() {
         this.closeModal.emit()
     }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Employee } from '@app/models/Employee';
 import { Role } from '@app/models/Role';
 import { CommonModule } from '@angular/common';
+import { removeEmployee } from '@app/lib/httpFunctions/Employee';
 
 @Component({
     selector: 'app-employee',
@@ -20,6 +21,11 @@ export class EmployeeComponent implements OnInit {
     employees: Employee[] = [];
 
     constructor(private http: HttpClient) { }
+
+    removeEmployee(id: number) {
+        console.log(id)
+
+    }
 
     ngOnInit() {
         this.getAllRoles()

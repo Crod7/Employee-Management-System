@@ -1,8 +1,8 @@
-// role-utils.ts
+
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const url = 'https://epmgapi.azurewebsites.net/api/employees';
+const addUrl = 'https://epmgapi.azurewebsites.net/api/employees';
 
 export function addEmployee(http: HttpClient, formData: any): Observable<any[]> {
     const jsonData = {
@@ -39,5 +39,12 @@ export function addEmployee(http: HttpClient, formData: any): Observable<any[]> 
             sundayEnd: null
         }
     };
-    return http.post<any[]>(url, jsonData);
+    return http.post<any[]>(addUrl, jsonData);
+}
+
+
+export function removeEmployee(http: HttpClient, id: any): Observable<any[]> {
+    const removeUrl = `https://epmgapi.azurewebsites.net/api/employees/${id}`;
+
+    return http.delete<any[]>(removeUrl);
 }
