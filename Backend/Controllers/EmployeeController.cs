@@ -111,5 +111,28 @@ public class EmployeesController : ControllerBase
         return Ok(employees);
     }
 
+    /*
+    * HTTP: DELETE
+    * URL: /api/employees/{id}
+    */
+    [HttpDelete("{id}")]
+    public IActionResult RemoveEmployee(int id)
+    {
+        // Retrieve the employee by id
+        var employee = _dbContext.Employee.Find(id);
 
+        if (employee == null)
+        {
+            // Return a 404 Not Found if the employee is not found
+            return NotFound();
+        }
+
+
+        // Remove the employee from the database
+        _dbContext.Employee.Remove(employee);
+        _dbContext.SaveChanges();  // Save changes to persist the removal
+
+        // Return a 200 OK status
+        return Ok();
+    }
 }
