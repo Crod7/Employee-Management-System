@@ -4,6 +4,7 @@ import { Employee } from '@app/models/Employee';
 import { Role } from '@app/models/Role';
 import { CommonModule } from '@angular/common';
 import { removeEmployee } from '@app/lib/httpFunctions/Employee';
+import { SharedService } from '@app/lib/services/shared.service';
 
 @Component({
     selector: 'app-employee',
@@ -20,16 +21,29 @@ export class EmployeeComponent implements OnInit {
     roles: Role[] = [];
     employees: Employee[] = [];
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private sharedService: SharedService) { }
 
-    removeEmployee(id: number) {
-        console.log(id)
-
+    onRemove(id: number) {
+        removeEmployee(this.http, id).subscribe(
+            response => {
+                console.log('Employee removed successfully');
+                this.getAllEmployees();
+            },
+            error => {
+                console.error('Error removing employee:', error);
+            }
+        );
     }
 
     ngOnInit() {
         this.getAllRoles()
+        // If the user adds a new employee the list of employees is updated
+        this.sharedService.employeeAdded$.subscribe(() => {
+            this.getAllEmployees();
+        });
+
     }
+
     getAllRoles() {
         const getAllRolesUrl = 'https://epmgapi.azurewebsites.net/api/role';
 

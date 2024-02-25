@@ -45,6 +45,6 @@ export function addEmployee(http: HttpClient, formData: any): Observable<any[]> 
 
 export function removeEmployee(http: HttpClient, id: any): Observable<any[]> {
     const removeUrl = `https://epmgapi.azurewebsites.net/api/employees/${id}`;
-
+    console.log(removeUrl)
     return http.delete<any[]>(removeUrl);
 }

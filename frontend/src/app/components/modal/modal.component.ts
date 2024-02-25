@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { addEmployee } from '@app/lib/httpFunctions/Employee';
+import { SharedService } from '@app/lib/services/shared.service';
 
 @Component({
     selector: 'app-modal',
@@ -12,7 +13,10 @@ import { addEmployee } from '@app/lib/httpFunctions/Employee';
     styleUrl: './modal.component.css'
 })
 export class ModalComponent {
-    constructor(private http: HttpClient) { }
+
+    // Inits the http call and the sharedService function
+    constructor(private http: HttpClient, private sharedService: SharedService) { }
+
     employeeForm = new FormGroup({
         name: new FormControl(''),
         email: new FormControl(''),
@@ -30,9 +34,11 @@ export class ModalComponent {
     employeeAddSubmit(): void {
         addEmployee(this.http, this.employeeForm.value).subscribe(response => {
             console.log('Employee added successfully:', response);
+            this.sharedService.triggerEmployeeAdded(); // Trigger the function in the employee Component
         }, error => {
             console.error('Error adding employee:', error);
         });
+        this.onClose();
     }
 
     // The 'X' button on the modal used to close the modal
