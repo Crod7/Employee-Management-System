@@ -60,6 +60,7 @@ export class EmployeeComponent implements OnInit {
             this.getAllEmployees();
         })
     }
+
     getAllEmployees() {
         const getAllEmployeesUrl = 'https://epmgapi.azurewebsites.net/api/employees';
 
